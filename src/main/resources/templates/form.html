@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Form</title>
+    <link rel="stylesheet" href="../../css/style1.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<div class="row header">
+    <h1>POST A JOB! &nbsp;</h1>
+    <h3>Fill out the form below to hire fast!</h3>
+</div>
+
+<form action="#" th:action="@{/add-job}" th:object="${job}" method="post">
+
+    <div class="form-group"> <!-- Full Name -->
+        <label for="CompanyName" class="control-label">CompanyName</label>
+        <input type="text" th:field="*{CompanyName}" class="form-control" id="CompanyName"
+               name="CompanyName"
+               placeholder="Company Name"/>
+    </div>
+
+    <div class="form-group"> <!-- Street 1 -->
+        <label for="city" class="control-label">City</label>
+        <input type="text" th:field="*{city}" class="form-control" id="city" name="city"
+               placeholder="paris"/>
+    </div>
+
+    <div class="form-group"> <!-- Street 2 -->
+        <label for="pay" class="control-label">Pay</label>
+        <input type="text" th:field="*{pay}" class="form-control" id="pay" name="pay"
+               placeholder="Pay"/>
+    </div>
+
+    <div class="form-group"> <!-- City-->
+        <label for="duration" class="control-label">Duration</label>
+        <input type="text" th:field="*{duration}" class="form-control" id="duration" name="duration"
+               placeholder="5 weeks"/>
+    </div>
+
+    <div class="form-group"> <!-- State Button -->
+        <label for="category" class="control-label">Category</label>
+        <select th:field="*{category}" class="form-control" id="category" name="category">
+            <option value="AL">Sales Marketing</option>
+            <option value="AK">Consulting</option>
+            <option value="AZ">Other-Business</option>
+            <option value="AR">Non-Business</option>
+        </select>
+    </div>
+
+    <div class="form-group"> <!-- Zip Code-->
+        <label for="description" class="control-label">Description</label>
+        <input type="text" th:field="*{description}" class="form-control" id="description"
+               name="description"
+               placeholder="desacription"/>
+    </div>
+
+    <div class="form-group"> <!-- Zip Code-->
+        <label for="email" class="control-label">Email</label>
+        <input type="email" class="form-control" id="email" name="description"
+               placeholder="desacription"/>
+    </div>
+
+    <div class="form-group"> <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">POST</button>
+    </div>
+
+</form>
+
+</body>
+</html>

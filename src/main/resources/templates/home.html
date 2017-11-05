@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nemo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script src="bootstrap/bootstrap-2.3.1.min.js"></script>
+
+    <link rel="stylesheet" href="../../css/product-lists/product-list-basic.css"
+          th:href="@{/css/product-lists/product-list-basic.css}"/>
+    <link rel="stylesheet"
+          href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+          th:href="@{http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css}"/>
+
+</head>
+<body>
+<p> "Hello !" </p>
+<p
+   >
+</p>
+<ul class="product-list-basic">
+    <li th:each="job : ${jobs}">
+
+        <a href="#" class="product-photo">
+            <img src="assets/images/products/iphone6.jpg" height="130" th:text="${job.companyName}" alt="iPhone 6"/>
+        </a>
+
+        <h2><a href="#"  >Name</a></h2>
+        <a href="#" class="product-compare" th:text="${job.contact}">compare</a>
+
+        <div class="product-rating">
+            <div>
+                        <span class="product-stars" style="width: 60px">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                class="fa fa-star"></i>
+                        </span>
+            </div>
+
+            <span><a href="#">82 reviews</a></span>
+        </div>
+
+        <p class="product-description" th:text="${job.description}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+            ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia
+            magna.</p>
+
+        <button>Buy Now!</button>
+        <p class="product-price" th:text="${job.pay}">$599.00</p>
+
+    </li>
+</ul>
+</body>
+
+</html>

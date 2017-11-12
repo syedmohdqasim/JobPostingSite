@@ -31,7 +31,7 @@
     <div class="form-group"> <!-- Street 2 -->
         <label for="pay" class="control-label">Pay</label>
         <input type="text" th:field="*{pay}" class="form-control" id="pay" name="pay"
-               placeholder="Pay"/>
+               placeholder="Pay ex- 100Euro/Week  Or 500Euro/Month"/>
     </div>
 
     <div class="form-group"> <!-- City-->
@@ -43,10 +43,10 @@
     <div class="form-group"> <!-- State Button -->
         <label for="category" class="control-label">Category</label>
         <select th:field="*{category}" class="form-control" id="category" name="category">
-            <option value="AL">Sales Marketing</option>
-            <option value="AK">Consulting</option>
-            <option value="AZ">Other-Business</option>
-            <option value="AR">Non-Business</option>
+            <option value="Sales Marketing">Sales Marketing</option>
+            <option value="Consulting">Consulting</option>
+            <option value="Other-Business">Other-Business</option>
+            <option value="Non-Business">Non-Business</option>
         </select>
     </div>
 
@@ -54,13 +54,13 @@
         <label for="description" class="control-label">Description</label>
         <input type="text" th:field="*{description}" class="form-control" id="description"
                name="description"
-               placeholder="desacription"/>
+               placeholder="description"/>
     </div>
 
     <div class="form-group"> <!-- Zip Code-->
-        <label for="email" class="control-label">Email</label>
-        <input type="email" class="form-control" id="email" name="description"
-               placeholder="desacription"/>
+        <label for="email" class="control-label">Accept applications at(Email)</label>
+        <input type="email" class="form-control" id="email" th:field="*{contact}" name="description"
+               placeholder="Email"/>
     </div>
 
     <div class="form-group"> <!-- Submit Button -->

@@ -33,8 +33,9 @@ public class HomeController {
     }
 
     @RequestMapping(path = "/add-job", method = RequestMethod.POST)
-    public String addEntity(Job job) {
+    public String addEntity(Job job,Model model) {
         jobRepository.save(job);
+        model.addAttribute("jobs", jobRepository.findAll());
         return "home";
     }
 
@@ -51,4 +52,10 @@ public class HomeController {
         // This returns a JSON or XML with the users
         return jobRepository.findAll();
     }
+
+    @GetMapping(path="/header")
+    public String header(Model model){
+        return "header";
+    }
+
 }

@@ -6,46 +6,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <script src="bootstrap/bootstrap-2.3.1.min.js"></script>
+    <link rel="stylesheet"
+          href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          th:href="@{http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+
 
     <link rel="stylesheet" href="../../css/product-lists/product-list-basic.css"
           th:href="@{/css/product-lists/product-list-basic.css}"/>
+    <link rel="stylesheet" href="../../css/Header-Picture.css"
+          th:href="@{/css/Header-Picture.css}"/>
     <link rel="stylesheet"
           href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
           th:href="@{http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css}"/>
 
 </head>
 <body>
-<p> "Hello !" </p>
-<p
-   >
+<p>
 </p>
-<ul class="product-list-basic">
+<nav class="navbar navbar-default" id="navigation-purple">
+    <div class="container">
+        <a href="#"><img class="img-responsive img-circle avatar" src="/images/interns.jpg"
+                         alt="Avatar"/></a>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Ahmad's Billion Dollar Idea!</a></li>
+                <li><a href="/postJob" th:href="@{/postJob}">POST A JOB !</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<ul class="product-list-basic" id="list">
     <li th:each="job : ${jobs}">
 
         <a href="#" class="product-photo">
-            <img src="assets/images/products/iphone6.jpg" height="130" th:text="${job.companyName}" alt="iPhone 6"/>
+            <img src="assets/images/products/iphone6.jpg" height="130" th:text="${job.category}"/>
         </a>
 
-        <h2><a href="#"  >Name</a></h2>
-        <a href="#" class="product-compare" th:text="${job.contact}">compare</a>
+        <h2><a href="#" th:text="${job.companyName}">Name</a></h2>
 
         <div class="product-rating">
             <div>
-                        <span class="product-stars" style="width: 60px">
-                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                class="fa fa-star"></i>
+                        <span class="product-stars" style="width: 60px" th:text="${job.city}">
+                            City
                         </span>
             </div>
 
-            <span><a href="#">82 reviews</a></span>
+            <span><a href="#" th:text="${job.duration}">Duration</a></span>
+            <br/>
+            <br/>
+
+            <p class="product-stars">Apply At: &nbsp; &nbsp;</p>
+            <p  class="product-stars"  th:text="${job.contact}">contact</p>
         </div>
+        <p class="product-description" th:text="${job.description}">Description</p>
 
-        <p class="product-description" th:text="${job.description}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-            ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia
-            magna.</p>
-
-        <button>Buy Now!</button>
+        <!--<button>Apply Now!</button>-->
         <p class="product-price" th:text="${job.pay}">$599.00</p>
 
     </li>

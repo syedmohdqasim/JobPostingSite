@@ -261,4 +261,10 @@ section.success{
     color: #fff;
     }
 
-
+.footer{
+display: inline-block;
+align: center
+font-weight : bold;
+border: 15px
+color : red;
+}

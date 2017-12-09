@@ -37,7 +37,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="#">Ahmad's Billion Dollar Idea!</a></li>
+                <li><a href="#">Welcome To InternsShip Hub!</a></li>
                 <li><a href="/postJob" th:href="@{/postJob}">POST A JOB !</a></li>
             </ul>
         </div>
@@ -64,7 +64,7 @@
             <br/>
 
             <p class="product-stars">Apply At: &nbsp; &nbsp;</p>
-            <p  class="product-stars"  th:text="${job.contact}">contact</p>
+            <p  class="product-stars"><a th:href="@{'mailto:'+${job.contact}}" th:text="${job.contact}">contact</a></p>
         </div>
         <p class="product-description" th:text="${job.description}">Description</p>
 
@@ -73,6 +73,11 @@
 
     </li>
 </ul>
+
+<footer>
+    <p align="center">For Any Query Please Drop A Mail At : <a href="mailto:talabjobs@gmail.com">talabjobs@gmail.com</a>.</p>
+</footer>
 </body>
+
 
 </html>

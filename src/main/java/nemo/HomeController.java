@@ -15,6 +15,7 @@ public class HomeController {
     public String home(Model model) {
 
         model.addAttribute("jobs", jobRepository.findAll());
+        model.addAttribute("job", new Job());
         return "newhome";
     }
 
@@ -36,7 +37,8 @@ public class HomeController {
     public String addEntity(Job job,Model model) {
         jobRepository.save(job);
         model.addAttribute("jobs", jobRepository.findAll());
-        return "home";
+        model.addAttribute("job", new Job());
+        return "newhome";
     }
 
     @RequestMapping(path = "/postJob", method = RequestMethod.GET)

@@ -15,7 +15,7 @@ public class HomeController {
     public String home(Model model) {
 
         model.addAttribute("jobs", jobRepository.findAll());
-        return "home";
+        return "newhome";
     }
 
     @GetMapping(path = "/add") // Map ONLY GET Requests

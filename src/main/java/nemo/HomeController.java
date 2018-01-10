@@ -5,11 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class HomeController {
 
     @Autowired
     private JobRepository jobRepository;
+
+    @Autowired
+    private ICaptchaService captchaService;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -34,11 +39,14 @@ public class HomeController {
     }
 
     @RequestMapping(path = "/add-job", method = RequestMethod.POST)
-    public String addEntity(Job job,Model model) {
+    public String addEntity(Job job,Model model, HttpServletRequest request) throws ReCaptchaUnavailableException, ReCaptchaInvalidException {
+        String response = request.getParameter("g-recaptcha-response");
+        System.out.println("**********"+response);
+        captchaService.processResponse(response);
         jobRepository.save(job);
         model.addAttribute("jobs", jobRepository.findAll());
         model.addAttribute("job", new Job());
-        return "newhome";
+        return "redirect:/";
     }
 
     @RequestMapping(path = "/postJob", method = RequestMethod.GET)

@@ -31,6 +31,8 @@ public class Job {
 
     private String contact;
 
+    private String post;
+
     public Integer getId() {
         return id;
     }
@@ -110,5 +112,13 @@ public class Job {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getPost() {
+        return post;
+    }
+
+    public void setPost(String post) {
+        this.post = post;
     }
 }
